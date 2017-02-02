@@ -1,0 +1,2 @@
+DESIGN PATTERNS ARE JUST ONE OF THE SOLUTIONS FROM THE SEA OF LANGUAGE
+first comes basic language paradigm, then OOP principles and language implementation and last pattarns
