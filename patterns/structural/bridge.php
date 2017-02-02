@@ -1,58 +1,73 @@
 <?php
 
-abstract class BridgeBook {     
+abstract class BridgeBook
+{
     private $bbAuthor;
     private $bbTitle;
     private $bbImp;
-    function __construct($author_in, $title_in, $choice_in) {
-      $this->bbAuthor = $author_in;
-      $this->bbTitle  = $title_in;
-      if ('STARS' == $choice_in) {
-        $this->bbImp = new BridgeBookStarsImp();
-      } else {
-        $this->bbImp = new BridgeBookCapsImp();
-      }
-    }    
-    function showAuthor() {
-      return $this->bbImp->showAuthor($this->bbAuthor);
+    public function __construct($author_in, $title_in, $choice_in)
+    {
+        $this->bbAuthor = $author_in;
+        $this->bbTitle  = $title_in;
+        if ('STARS' == $choice_in) {
+            $this->bbImp = new BridgeBookStarsImp();
+        } else {
+            $this->bbImp = new BridgeBookCapsImp();
+        }
     }
-    function showTitle() {
-      return $this->bbImp->showTitle($this->bbTitle);
+    public function showAuthor()
+    {
+        return $this->bbImp->showAuthor($this->bbAuthor);
     }
-}
- 
-class BridgeBookAuthorTitle extends BridgeBook {    
-    function showAuthorTitle() {
-      return $this->showAuthor() . "'s " . $this->showTitle();
-    }
-}  
- 
-class BridgeBookTitleAuthor extends BridgeBook {    
-    function showTitleAuthor() {
-      return $this->showTitle() . ' by ' . $this->showAuthor();
+    public function showTitle()
+    {
+        return $this->bbImp->showTitle($this->bbTitle);
     }
 }
  
-abstract class BridgeBookImp {    
-    abstract function showAuthor($author);
-    abstract function showTitle($title);
+class BridgeBookAuthorTitle extends BridgeBook
+{
+    public function showAuthorTitle()
+    {
+        return $this->showAuthor() . "'s " . $this->showTitle();
+    }
+}
+ 
+class BridgeBookTitleAuthor extends BridgeBook
+{
+    public function showTitleAuthor()
+    {
+        return $this->showTitle() . ' by ' . $this->showAuthor();
+    }
+}
+ 
+abstract class BridgeBookImp
+{
+    abstract public function showAuthor($author);
+    abstract public function showTitle($title);
 }
 
-class BridgeBookCapsImp extends BridgeBookImp {    
-    function showAuthor($author_in) {
-      return strtoupper($author_in); 
+class BridgeBookCapsImp extends BridgeBookImp
+{
+    public function showAuthor($author_in)
+    {
+        return strtoupper($author_in);
     }
-    function showTitle($title_in) {
-      return strtoupper($title_in); 
+    public function showTitle($title_in)
+    {
+        return strtoupper($title_in);
     }
 }
 
-class BridgeBookStarsImp extends BridgeBookImp {    
-    function showAuthor($author_in) {
-      return Str_replace(" ","*",$author_in); 
+class BridgeBookStarsImp extends BridgeBookImp
+{
+    public function showAuthor($author_in)
+    {
+        return Str_replace(" ", "*", $author_in);
     }
-    function showTitle($title_in) {
-      return Str_replace(" ","*",$title_in); 
+    public function showTitle($title_in)
+    {
+        return Str_replace(" ", "*", $title_in);
     }
 }
 
@@ -60,29 +75,28 @@ class BridgeBookStarsImp extends BridgeBookImp {
   writeln('');
  
   writeln('test 1 - author title with caps');
-  $book = new BridgeBookAuthorTitle('Larry Truett','PHP for Cats','CAPS');
+  $book = new BridgeBookAuthorTitle('Larry Truett', 'PHP for Cats', 'CAPS');
   writeln($book->showAuthorTitle());
   writeln('');
 
   writeln('test 2 - author title with stars');
-  $book = new BridgeBookAuthorTitle('Larry Truett','PHP for Cats','STARS');
+  $book = new BridgeBookAuthorTitle('Larry Truett', 'PHP for Cats', 'STARS');
   writeln($book->showAuthorTitle());
   writeln('');
 
   writeln('test 3 - title author with caps');
-  $book = new BridgeBookTitleAuthor('Larry Truett','PHP for Cats','CAPS');
+  $book = new BridgeBookTitleAuthor('Larry Truett', 'PHP for Cats', 'CAPS');
   writeln($book->showTitleAuthor());
   writeln('');
 
   writeln('test 4 - title author with stars');
-  $book = new BridgeBookTitleAuthor('Larry Truett','PHP for Cats','STARS');
+  $book = new BridgeBookTitleAuthor('Larry Truett', 'PHP for Cats', 'STARS');
   writeln($book->showTitleAuthor());
   writeln('');
 
   writeln('END TESTING BRIDGE PATTERN');
 
-  function writeln($line_in) {
-    echo $line_in."<br/>";
+  function writeln($line_in)
+  {
+      echo $line_in."<br/>";
   }
-
-?>

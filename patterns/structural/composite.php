@@ -1,77 +1,92 @@
 <?php
 
-abstract class OnTheBookShelf {
-    abstract function getBookInfo($previousBook);
-    abstract function getBookCount();
-    abstract function setBookCount($new_count);
-    abstract function addBook($oneBook);
-    abstract function removeBook($oneBook);
+abstract class OnTheBookShelf
+{
+    abstract public function getBookInfo($previousBook);
+    abstract public function getBookCount();
+    abstract public function setBookCount($new_count);
+    abstract public function addBook($oneBook);
+    abstract public function removeBook($oneBook);
 }
 
-class OneBook extends OnTheBookShelf {
+class OneBook extends OnTheBookShelf
+{
     private $title;
     private $author;
-    function __construct($title, $author) {
-      $this->title = $title;
-      $this->author = $author;
+    public function __construct($title, $author)
+    {
+        $this->title = $title;
+        $this->author = $author;
     }
-    function getBookInfo($bookToGet) {
-      if (1 == $bookToGet) {
-        return $this->title." by ".$this->author;
-      } else {
-        return FALSE;
-      }
+    public function getBookInfo($bookToGet)
+    {
+        if (1 == $bookToGet) {
+            return $this->title." by ".$this->author;
+        } else {
+            return false;
+        }
     }
-    function getBookCount() {
-      return 1;
+    public function getBookCount()
+    {
+        return 1;
     }
-    function setBookCount($newCount) {
-      return FALSE;
+    public function setBookCount($newCount)
+    {
+        return false;
     }
-    function addBook($oneBook) {
-      return FALSE;
+    public function addBook($oneBook)
+    {
+        return false;
     }
-    function removeBook($oneBook) {
-      return FALSE;
+    public function removeBook($oneBook)
+    {
+        return false;
     }
 }
 
-class SeveralBooks extends OnTheBookShelf {
+class SeveralBooks extends OnTheBookShelf
+{
     private $oneBooks = array();
     private $bookCount;
-    public function __construct() {
-      $this->setBookCount(0);
+    public function __construct()
+    {
+        $this->setBookCount(0);
     }
-    public function getBookCount() {
-      return $this->bookCount;
+    public function getBookCount()
+    {
+        return $this->bookCount;
     }
-    public function setBookCount($newCount) {
-      $this->bookCount = $newCount;
+    public function setBookCount($newCount)
+    {
+        $this->bookCount = $newCount;
     }
-    public function getBookInfo($bookToGet) {	
-      if ($bookToGet <= $this->bookCount) {
-        return $this->oneBooks[$bookToGet]->getBookInfo(1);
-      } else {
-        return FALSE;
-      }
-    }
-    public function addBook($oneBook) {
-      $this->setBookCount($this->getBookCount() + 1);
-      $this->oneBooks[$this->getBookCount()] = $oneBook;
-      return $this->getBookCount();
-    }
-    public function removeBook($oneBook) {
-      $counter = 0;
-      while (++$counter <= $this->getBookCount()) {
-        if ($oneBook->getBookInfo(1) == 
-          $this->oneBooks[$counter]->getBookInfo(1)) {
-          for ($x = $counter; $x < $this->getBookCount(); $x++) {
-            $this->oneBooks[$x] = $this->oneBooks[$x + 1];
-          }
-          $this->setBookCount($this->getBookCount() - 1);
+    public function getBookInfo($bookToGet)
+    {
+        if ($bookToGet <= $this->bookCount) {
+            return $this->oneBooks[$bookToGet]->getBookInfo(1);
+        } else {
+            return false;
         }
-      }
-      return $this->getBookCount();
+    }
+    public function addBook($oneBook)
+    {
+        $this->setBookCount($this->getBookCount() + 1);
+        $this->oneBooks[$this->getBookCount()] = $oneBook;
+        return $this->getBookCount();
+    }
+    public function removeBook($oneBook)
+    {
+        $counter = 0;
+        while (++$counter <= $this->getBookCount()) {
+            if ($oneBook->getBookInfo(1) ==
+          $this->oneBooks[$counter]->getBookInfo(1)) {
+                for ($x = $counter; $x < $this->getBookCount(); $x++) {
+                    $this->oneBooks[$x] = $this->oneBooks[$x + 1];
+                }
+                $this->setBookCount($this->getBookCount() - 1);
+            }
+        }
+        return $this->getBookCount();
     }
 }
 
@@ -125,8 +140,7 @@ class SeveralBooks extends OnTheBookShelf {
 
   writeln('END TESTING COMPOSITE PATTERN');
  
-  function writeln($line_in) {
-    echo $line_in."<br/>";
+  function writeln($line_in)
+  {
+      echo $line_in."<br/>";
   }
-
-?>

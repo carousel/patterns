@@ -1,102 +1,123 @@
 <?php
 
-abstract class AbstractBookFactory {/*{{{*/
-    abstract function makePHPBook();
-    abstract function makeMySQLBook();
+abstract class AbstractBookFactory
+{/*{{{*/
+    abstract public function makePHPBook();
+    abstract public function makeMySQLBook();
 }/*}}}*/
 
-class OReillyBookFactory extends AbstractBookFactory {/*{{{*/
+class OReillyBookFactory extends AbstractBookFactory
+{/*{{{*/
     private $context = "OReilly";
-    function makeMySQLBook() {
+    public function makeMySQLBook()
+    {
         return new OReillyMySQLBook;
     }
-    function makePHPBook() {
+    public function makePHPBook()
+    {
         return new OReillyPHPBook;
     }
 }/*}}}*/
 
-class SamsBookFactory extends AbstractBookFactory {/*{{{*/
+class SamsBookFactory extends AbstractBookFactory
+{/*{{{*/
     private $context = "Sams";
-    function makeMySQLBook() {
+    public function makeMySQLBook()
+    {
         return new SamsMySQLBook;
     }
-    function makePHPBook() {
+    public function makePHPBook()
+    {
         return new SamsPHPBook;
     }
 }/*}}}*/
 
 
 
-abstract class AbstractMySQLBook {/*{{{*/
+abstract class AbstractMySQLBook
+{/*{{{*/
     private $subject = "MySQL";
 }/*}}}*/
 
-class OReillyMySQLBook extends AbstractMySQLBook {/*{{{*/
+class OReillyMySQLBook extends AbstractMySQLBook
+{/*{{{*/
     private $author;
     private $title;
-    function __construct() {
+    public function __construct()
+    {
         $this->author = 'George Reese, Randy Jay Yarger, and Tim King';
         $this->title = 'Managing and Using MySQL';
     }
-    function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
-    function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 }/*}}}*/
 
-class SamsMySQLBook extends AbstractMySQLBook {/*{{{*/
+class SamsMySQLBook extends AbstractMySQLBook
+{/*{{{*/
     private $author;
     private $title;
-    function __construct() {
+    public function __construct()
+    {
         $this->author = 'Paul Dubois';
         $this->title = 'MySQL, 3rd Edition';
     }
-    function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
-    function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 }/*}}}*/
 
 
 
-abstract class AbstractPHPBook {/*{{{*/
+abstract class AbstractPHPBook
+{/*{{{*/
     private $subject = "PHP";
 }/*}}}*/
 
-class OReillyPHPBook extends AbstractPHPBook {/*{{{*/
+class OReillyPHPBook extends AbstractPHPBook
+{/*{{{*/
     private $author;
     private $title;
     private static $oddOrEven = 'odd';
-    function __construct()
+    public function __construct()
     {
         //alternate between 2 books
         if ('odd' == self::$oddOrEven) {
             $this->author = 'Rasmus Lerdorf and Kevin Tatroe';
             $this->title = 'Programming PHP';
             self::$oddOrEven = 'even';
-        }
-        else {
+        } else {
             $this->author = 'David Sklar and Adam Trachtenberg';
             $this->title = 'PHP Cookbook';
             self::$oddOrEven = 'odd';
         }
     }
-    function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
-    function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 }/*}}}*/
 
-class SamsPHPBook extends AbstractPHPBook {/*{{{*/
+class SamsPHPBook extends AbstractPHPBook
+{/*{{{*/
     private $author;
     private $title;
-    function __construct() {
+    public function __construct()
+    {
         //alternate randomly between 2 books
         mt_srand((double)microtime() * 10000000);
         $rand_num = mt_rand(0, 1);
@@ -104,16 +125,17 @@ class SamsPHPBook extends AbstractPHPBook {/*{{{*/
         if (1 > $rand_num) {
             $this->author = 'George Schlossnagle';
             $this->title = 'Advanced PHP Programming';
-        }
-        else {
+        } else {
             $this->author = 'Christian Wenz';
             $this->title = 'PHP Phrasebook';
         }
     }
-    function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
-    function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
 }/*}}}*/
@@ -144,6 +166,3 @@ class SamsPHPBook extends AbstractPHPBook {/*{{{*/
       echo('MySQL Author: '.$mySqlBook->getAuthor() . "\n");
       echo('MySQL Title: '.$mySqlBook->getTitle() . "\n");
   }
-
-
-?>

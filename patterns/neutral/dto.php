@@ -8,7 +8,7 @@
  *      * ORMs usually break the reconstitution of the whole object graph by putting
  *       * lazy-loading proxies on the boundaries of the needed subgraph.
  *        */
-class User 
+class User
 {
     private $_name;
     private $_groups = array();
@@ -18,36 +18,36 @@ class User
      *           */
     public function getName()
     {
-            return $this->_name;
-        }
+        return $this->_name;
+    }
 
     public function setName($name)
     {
-            $this->_name = $name;
-        }
+        $this->_name = $name;
+    }
 
     /**
      *      * @return string
      *           */
     public function getRole()
     {
-            return $this->_role;
-        }
+        return $this->_role;
+    }
 
     public function setRole($role)
     {
-            $this->_role = $role;
-        }
+        $this->_role = $role;
+    }
 
     public function addGroup(Group $group)
     {
-            $this->_group = $group;
-        }
+        $this->_group = $group;
+    }
 
     public function getGroups()
     {
-            return $this->_groups;
-        }
+        return $this->_groups;
+    }
 }
 
 /**
@@ -62,13 +62,13 @@ class Group
         *           */
     public function getName()
     {
-            return $this->_name;
-        }
+        return $this->_name;
+    }
 
     public function setName($name)
     {
-            $this->_name = $name;
-        }
+        $this->_name = $name;
+    }
 }
 
 /**
@@ -84,23 +84,23 @@ class UserDTO
         *                */
     public function __construct(User $user)
     {
-            $this->_name = $user->getName();
-            $this->_role = $user->getRole();
-        }
+        $this->_name = $user->getName();
+        $this->_role = $user->getRole();
+    }
 
     public function getName()
     {
-            return $this->_name;
-        }
+        return $this->_name;
+    }
 
     public function getRole()
     {
-            return $this->_role;
-        }
+        return $this->_role;
+    }
     
     //there are no setters because this use cases does not require modification of data
         // however, in general DTOs do not need to be immutable.
-        }
+}
     
         // client code
         $user = new User();

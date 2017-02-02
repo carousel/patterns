@@ -1,59 +1,72 @@
 <?php
 
-class FlyweightBook {
+class FlyweightBook
+{
     private $author;
-    private $title;    
-    function __construct($author_in, $title_in) {
+    private $title;
+    public function __construct($author_in, $title_in)
+    {
         $this->author = $author_in;
         $this->title  = $title_in;
-    }      
-    function getAuthor() {
+    }
+    public function getAuthor()
+    {
         return $this->author;
-    }    
-    function getTitle() {
+    }
+    public function getTitle()
+    {
         return $this->title;
     }
 }
  
-class FlyweightFactory {
-    private $books = array();     
-    function __construct() {
-        $this->books[1] = NULL;
-        $this->books[2] = NULL;
-        $this->books[3] = NULL;
-    }  
-    function getBook($bookKey) {
-        if (NULL == $this->books[$bookKey]) {
+class FlyweightFactory
+{
+    private $books = array();
+    public function __construct()
+    {
+        $this->books[1] = null;
+        $this->books[2] = null;
+        $this->books[3] = null;
+    }
+    public function getBook($bookKey)
+    {
+        if (null == $this->books[$bookKey]) {
             $makeFunction = 'makeBook'.$bookKey;
-            $this->books[$bookKey] = $this->$makeFunction(); 
-        } 
+            $this->books[$bookKey] = $this->$makeFunction();
+        }
         return $this->books[$bookKey];
-    }    
-    //Sort of an long way to do this, but hopefully easy to follow.  
-    //How you really want to make flyweights would depend on what 
+    }
+    //Sort of an long way to do this, but hopefully easy to follow.
+    //How you really want to make flyweights would depend on what
     //your application needs.  This, while a little clumbsy looking,
     //does work well.
-    function makeBook1() {
-        $book = new FlyweightBook('Larry Truett','PHP For Cats'); 
+    public function makeBook1()
+    {
+        $book = new FlyweightBook('Larry Truett', 'PHP For Cats');
         return $book;
     }
-    function makeBook2() {
-        $book = new FlyweightBook('Larry Truett','PHP For Dogs'); 
+    public function makeBook2()
+    {
+        $book = new FlyweightBook('Larry Truett', 'PHP For Dogs');
         return $book;
     }
-    function makeBook3() {
-        $book = new FlyweightBook('Larry Truett','PHP For Parakeets'); 
+    public function makeBook3()
+    {
+        $book = new FlyweightBook('Larry Truett', 'PHP For Parakeets');
         return $book;
     }
 }
  
-class FlyweightBookShelf {
+class FlyweightBookShelf
+{
     private $books = array();
-    function addBook($book) {
+    public function addBook($book)
+    {
         $this->books[] = $book;
-    }    
-    function showBooks() {
-        $return_string = NULL;
+    }
+    public function showBooks()
+    {
+        $return_string = null;
         foreach ($this->books as $book) {
             $return_string .= 'title: '.$book->getAuthor().'  author: '.$book->getTitle();
         };
@@ -72,9 +85,9 @@ class FlyweightBookShelf {
  
   writeln('test 1 - show the two books are the same book');
   if ($flyweightBook1 === $flyweightBook2) {
-     writeln('1 and 2 are the same');
+      writeln('1 and 2 are the same');
   } else {
-     writeln('1 and 2 are not the same');    
+      writeln('1 and 2 are not the same');
   }
   writeln('');
 
@@ -82,8 +95,8 @@ class FlyweightBookShelf {
   writeln($flyweightBookShelf1->showBooks());
   writeln('');
 
-  $flyweightBookShelf2 =  new FlyweightBookShelf(); 
-  $flyweightBook1 = $flyweightFactory->getBook(2);  
+  $flyweightBookShelf2 =  new FlyweightBookShelf();
+  $flyweightBook1 = $flyweightFactory->getBook(2);
   $flyweightBookShelf2->addBook($flyweightBook1);
   $flyweightBookShelf1->addBook($flyweightBook1);
 
@@ -97,8 +110,7 @@ class FlyweightBookShelf {
 
   writeln('END TESTING FLYWEIGHT PATTERN');
  
-  function writeln($line_in) {
-    echo $line_in."<br/>";
+  function writeln($line_in)
+  {
+      echo $line_in."<br/>";
   }
-
-?>

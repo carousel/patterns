@@ -3,68 +3,84 @@
 /*
  *   Singleton classes
  */
-class BookSingleton {
+class BookSingleton
+{
     private $author = 'Gamma, Helm, Johnson, and Vlissides';
     private $title  = 'Design Patterns';
-    private static $book = NULL;
-    private static $isLoanedOut = FALSE;
+    private static $book = null;
+    private static $isLoanedOut = false;
 
-    private function __construct() {
+    private function __construct()
+    {
     }
 
-    static function borrowBook() {
-      if (FALSE == self::$isLoanedOut) {
-        if (NULL == self::$book) {
-           self::$book = new BookSingleton();
+    public static function borrowBook()
+    {
+        if (false == self::$isLoanedOut) {
+            if (null == self::$book) {
+                self::$book = new BookSingleton();
+            }
+            self::$isLoanedOut = true;
+            return self::$book;
+        } else {
+            return null;
         }
-        self::$isLoanedOut = TRUE;
-        return self::$book;
-      } else {
-        return NULL;
-      }
     }
 
-    function returnBook(BookSingleton $bookReturned) {
-        self::$isLoanedOut = FALSE;
+    public function returnBook(BookSingleton $bookReturned)
+    {
+        self::$isLoanedOut = false;
     }
 
-    function getAuthor() {return $this->author;}
-
-    function getTitle() {return $this->title;}
-
-    function getAuthorAndTitle() {
-      return $this->getTitle() . ' by ' . $this->getAuthor();
+    public function getAuthor()
+    {
+        return $this->author;
     }
-  }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getAuthorAndTitle()
+    {
+        return $this->getTitle() . ' by ' . $this->getAuthor();
+    }
+}
  
-class BookBorrower {
+class BookBorrower
+{
     private $borrowedBook;
-    private $haveBook = FALSE;
+    private $haveBook = false;
 
-    function __construct() {
+    public function __construct()
+    {
     }
 
-    function getAuthorAndTitle() {
-      if (TRUE == $this->haveBook) {
-        return $this->borrowedBook->getAuthorAndTitle();
-      } else {
-        return "I don't have the book";
-      }
+    public function getAuthorAndTitle()
+    {
+        if (true == $this->haveBook) {
+            return $this->borrowedBook->getAuthorAndTitle();
+        } else {
+            return "I don't have the book";
+        }
     }
 
-    function borrowBook() {
-      $this->borrowedBook = BookSingleton::borrowBook();
-      if ($this->borrowedBook == NULL) {
-        $this->haveBook = FALSE;
-      } else {
-        $this->haveBook = TRUE;
-      }
+    public function borrowBook()
+    {
+        $this->borrowedBook = BookSingleton::borrowBook();
+        if ($this->borrowedBook == null) {
+            $this->haveBook = false;
+        } else {
+            $this->haveBook = true;
+        }
     }
 
-    function returnBook() {
-      $this->borrowedBook->returnBook($this->borrowedBook);
+    public function returnBook()
+    {
+        $this->borrowedBook->returnBook($this->borrowedBook);
     }
-  }
+}
  
 /*
  *   Initialization
@@ -99,7 +115,7 @@ class BookBorrower {
 
   writeln('END TESTING SINGLETON PATTERN');
 
-  function writeln($line_in) {
-    echo $line_in.'<br/>';
+  function writeln($line_in)
+  {
+      echo $line_in.'<br/>';
   }
-?>

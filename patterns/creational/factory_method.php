@@ -1,13 +1,16 @@
 <?php
 
-abstract class AbstractFactoryMethod {
-    abstract function makePHPBook($param);
+abstract class AbstractFactoryMethod
+{
+    abstract public function makePHPBook($param);
 }
 
-class OReillyFactoryMethod extends AbstractFactoryMethod {
+class OReillyFactoryMethod extends AbstractFactoryMethod
+{
     private $context = "OReilly";
-    function makePHPBook($param) {
-	$book = NULL;
+    public function makePHPBook($param)
+    {
+        $book = null;
         switch ($param) {
             case "us":
                 $book = new OReillyPHPBook;
@@ -19,14 +22,16 @@ class OReillyFactoryMethod extends AbstractFactoryMethod {
                 $book = new OReillyPHPBook;
             break;
         }
-	return $book;
+        return $book;
     }
 }
 
-class SamsFactoryMethod extends AbstractFactoryMethod {
+class SamsFactoryMethod extends AbstractFactoryMethod
+{
     private $context = "Sams";
-    function makePHPBook($param) {
-        $book = NULL;
+    public function makePHPBook($param)
+    {
+        $book = null;
         switch ($param) {
             case "us":
                 $book = new SamsPHPBook;
@@ -48,15 +53,18 @@ class SamsFactoryMethod extends AbstractFactoryMethod {
 
 
 
-abstract class AbstractPHPBook {
+abstract class AbstractPHPBook
+{
     private $subject = "PHP";
 }
 
-class OReillyPHPBook extends AbstractPHPBook {
+class OReillyPHPBook extends AbstractPHPBook
+{
     private $author;
     private $title;
     private static $oddOrEven = 'odd';
-    function __construct() {
+    public function __construct()
+    {
         //alternate between 2 books
         if ('odd' == self::$oddOrEven) {
             $this->author = 'Rasmus Lerdorf and Kevin Tatroe';
@@ -68,17 +76,25 @@ class OReillyPHPBook extends AbstractPHPBook {
             self::$oddOrEven = 'odd';
         }
     }
-    function getAuthor() {return $this->author;}
-    function getTitle() {return $this->title;}
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }
 
-class SamsPHPBook extends AbstractPHPBook {
+class SamsPHPBook extends AbstractPHPBook
+{
     private $author;
     private $title;
-    function __construct() {
+    public function __construct()
+    {
         //alternate randomly between 2 books
         mt_srand((double)microtime()*10000000);
-        $rand_num = mt_rand(0,1);
+        $rand_num = mt_rand(0, 1);
 
         if (1 > $rand_num) {
             $this->author = 'George Schlossnagle';
@@ -88,18 +104,32 @@ class SamsPHPBook extends AbstractPHPBook {
             $this->title  = 'PHP Phrasebook';
         }
     }
-    function getAuthor() {return $this->author;}
-    function getTitle() {return $this->title;}
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }
-class VisualQuickstartPHPBook extends AbstractPHPBook {
+class VisualQuickstartPHPBook extends AbstractPHPBook
+{
     private $author;
     private $title;
-    function __construct() {
-      $this->author = 'Larry Ullman';
-      $this->title  = 'PHP for the World Wide Web';
+    public function __construct()
+    {
+        $this->author = 'Larry Ullman';
+        $this->title  = 'PHP for the World Wide Web';
     }
-    function getAuthor() {return $this->author;}
-    function getTitle() {return $this->title;}
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+    public function getTitle()
+    {
+        return $this->title;
+    }
 }
 
     TESTING:
@@ -121,7 +151,8 @@ class VisualQuickstartPHPBook extends AbstractPHPBook {
     writeln('END TESTING FACTORY METHOD PATTERN');
     writeln('');
 
-    function testFactoryMethod($factoryMethodInstance) {
+    function testFactoryMethod($factoryMethodInstance)
+    {
         $phpUs = $factoryMethodInstance->makePHPBook("us");
         writeln('us php Author: '.$phpUs->getAuthor());
         writeln('us php Title: '.$phpUs->getTitle());
@@ -135,7 +166,7 @@ class VisualQuickstartPHPBook extends AbstractPHPBook {
         writeln('otherother php Title: '.$phpUs->getTitle());
     }
 
-    function writeln($line_in) {
+    function writeln($line_in)
+    {
         echo $line_in."<br/>";
     }
-    ?>
