@@ -53,7 +53,7 @@ BEHAVIORAL (decompositional,external to structure)
     -Strategy (interchangeable algorithms)
         -code to and interface (different algorithm implementation?)
     -Command 
-        -invoker/reciver paradigm
+        -invoker/receiver paradigm
         -execute command on receiver
     -Chain (multiple handlers for request/next)
     -Iterator (access aggregate object without internals)
