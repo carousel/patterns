@@ -6,15 +6,30 @@ class A
     public $setting = 'nope';
     public $anotherSetting = 'nope';
 
-    public function __construct()    { $this->setting = $this->anotherSetting = 'yep'; }
-    public function aGenericMethod() { return 42; }
+    public function __construct()
+    {
+        $this->setting = $this->anotherSetting = 'yep';
+    }
+    public function aGenericMethod()
+    {
+        return 42;
+    }
 }
 
 class B extends A
 {
-    public function __construct()     { $this->setting = 'yep'; }
-    public function doSomething()     { return "Did Something"; }
-    public function doSomethingElse() { return "Did Something Else"; }
+    public function __construct()
+    {
+        $this->setting = 'yep';
+    }
+    public function doSomething()
+    {
+        return "Did Something";
+    }
+    public function doSomethingElse()
+    {
+        return "Did Something Else";
+    }
 }
 
 class C extends B
@@ -24,8 +39,14 @@ class C extends B
         parent::__construct();
         $this->anotherSetting = 'tacos';
     }
-    public function doSomething()    { return 'Something'; }
-    public function aGenericMethod() { return 9000; }
+    public function doSomething()
+    {
+        return 'Something';
+    }
+    public function aGenericMethod()
+    {
+        return 9000;
+    }
     public function mixItUp()
     {
         return parent::aGenericMethod().' '.parent::doSomething().' '.$this->doSomething();

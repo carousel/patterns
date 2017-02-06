@@ -26,7 +26,7 @@ class PirateGreeting extends Greeting
     }
 }
 
-function greet( Greeting $greeting, $name = 'Someone' )
+function greet(Greeting $greeting, $name = 'Someone')
 {
     return $greeting->greet($name);
 }

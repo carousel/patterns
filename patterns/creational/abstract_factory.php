@@ -1,13 +1,13 @@
 <?php
 
 abstract class AbstractBookFactory
-{/*{{{*/
+{
     abstract public function makePHPBook();
     abstract public function makeMySQLBook();
-}/*}}}*/
+}
 
 class OReillyBookFactory extends AbstractBookFactory
-{/*{{{*/
+{
     private $context = "OReilly";
     public function makeMySQLBook()
     {
@@ -17,10 +17,10 @@ class OReillyBookFactory extends AbstractBookFactory
     {
         return new OReillyPHPBook;
     }
-}/*}}}*/
+}
 
 class SamsBookFactory extends AbstractBookFactory
-{/*{{{*/
+{
     private $context = "Sams";
     public function makeMySQLBook()
     {
@@ -30,17 +30,17 @@ class SamsBookFactory extends AbstractBookFactory
     {
         return new SamsPHPBook;
     }
-}/*}}}*/
+}
 
 
 
 abstract class AbstractMySQLBook
-{/*{{{*/
+{
     private $subject = "MySQL";
-}/*}}}*/
+}
 
 class OReillyMySQLBook extends AbstractMySQLBook
-{/*{{{*/
+{
     private $author;
     private $title;
     public function __construct()
@@ -56,10 +56,10 @@ class OReillyMySQLBook extends AbstractMySQLBook
     {
         return $this->title;
     }
-}/*}}}*/
+}
 
 class SamsMySQLBook extends AbstractMySQLBook
-{/*{{{*/
+{
     private $author;
     private $title;
     public function __construct()
@@ -75,17 +75,17 @@ class SamsMySQLBook extends AbstractMySQLBook
     {
         return $this->title;
     }
-}/*}}}*/
+}
 
 
 
 abstract class AbstractPHPBook
-{/*{{{*/
+{
     private $subject = "PHP";
-}/*}}}*/
+}
 
 class OReillyPHPBook extends AbstractPHPBook
-{/*{{{*/
+{
     private $author;
     private $title;
     private static $oddOrEven = 'odd';
@@ -110,10 +110,10 @@ class OReillyPHPBook extends AbstractPHPBook
     {
         return $this->title;
     }
-}/*}}}*/
+}
 
 class SamsPHPBook extends AbstractPHPBook
-{/*{{{*/
+{
     private $author;
     private $title;
     public function __construct()
@@ -138,7 +138,7 @@ class SamsPHPBook extends AbstractPHPBook
     {
         return $this->title;
     }
-}/*}}}*/
+}
 
 
   echo('BEGIN TESTING ABSTRACT FACTORY PATTERN' . "\n");

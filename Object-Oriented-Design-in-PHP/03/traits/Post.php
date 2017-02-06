@@ -3,14 +3,26 @@ require '../../TablePrinter.php';
 
 trait Categorizable
 {
-    public function getCategoryTable() { return "I am the table {$this->categoryTableName}"; }
-    public function getCategories() { return ['Awesome', 'Even More Awesome']; }
+    public function getCategoryTable()
+    {
+        return "I am the table {$this->categoryTableName}";
+    }
+    public function getCategories()
+    {
+        return ['Awesome', 'Even More Awesome'];
+    }
 }
 
 trait Taggable
 {
-    public function getTagTable() { return "I am the table {$this->tagTableName}"; }
-    public function getTags() { return ['#awesome', '#evenmoreawesome']; }
+    public function getTagTable()
+    {
+        return "I am the table {$this->tagTableName}";
+    }
+    public function getTags()
+    {
+        return ['#awesome', '#evenmoreawesome'];
+    }
 }
 
 class FakeORM
@@ -18,10 +30,16 @@ class FakeORM
     public $id;
 
     // Stubbed out instead of making a DB call
-    public static function find($id) { return new static($id); }
+    public static function find($id)
+    {
+        return new static($id);
+    }
 
     // Stubbed out instead of making a DB call
-    public function __construct($id) { $this->id = $id; }
+    public function __construct($id)
+    {
+        $this->id = $id;
+    }
 }
 
 class Post extends FakeORM
