@@ -71,32 +71,27 @@ class BridgeBookStarsImp extends BridgeBookImp
     }
 }
 
-  writeln('BEGIN TESTING BRIDGE PATTERN');
-  writeln('');
  
-  writeln('test 1 - author title with caps');
-  $book = new BridgeBookAuthorTitle('Larry Truett', 'PHP for Cats', 'CAPS');
+  writeln("Test 1 - author title with caps:\n");
+  $book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats\n", 'CAPS');
+  writeln($book->showAuthorTitle());
+
+  writeln("Test 2 - author title with stars:\n");
+  $book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats\n", 'STARS');
   writeln($book->showAuthorTitle());
   writeln('');
 
-  writeln('test 2 - author title with stars');
-  $book = new BridgeBookAuthorTitle('Larry Truett', 'PHP for Cats', 'STARS');
-  writeln($book->showAuthorTitle());
-  writeln('');
-
-  writeln('test 3 - title author with caps');
-  $book = new BridgeBookTitleAuthor('Larry Truett', 'PHP for Cats', 'CAPS');
+  writeln("test 3 - title author with caps\n");
+  $book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats\n", 'CAPS');
   writeln($book->showTitleAuthor());
   writeln('');
 
-  writeln('test 4 - title author with stars');
-  $book = new BridgeBookTitleAuthor('Larry Truett', 'PHP for Cats', 'STARS');
+  writeln("test 4 - title author with stars\n");
+  $book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats\n", 'STARS');
   writeln($book->showTitleAuthor());
-  writeln('');
 
-  writeln('END TESTING BRIDGE PATTERN');
 
   function writeln($line_in)
   {
-      echo $line_in."<br/>";
+      echo $line_in;
   }
