@@ -67,13 +67,13 @@ class OReillyPHPBook extends AbstractPHPBook
     {
         //alternate between 2 books
         if ('odd' == self::$oddOrEven) {
-            $this->author = 'Rasmus Lerdorf and Kevin Tatroe';
-            $this->title  = 'Programming PHP';
-            self::$oddOrEven = 'even';
+            $this->author = "Rasmus Lerdorf and Kevin Tatroe\n";
+            $this->title  = "Programming PHP\n";
+            self::$oddOrEven = "even\n";
         } else {
-            $this->author = 'David Sklar and Adam Trachtenberg';
-            $this->title  = 'PHP Cookbook';
-            self::$oddOrEven = 'odd';
+            $this->author = "David Sklar and Adam Trachtenberg\n";
+            $this->title  = "PHP Cookbook\n";
+            self::$oddOrEven = "odd\n";
         }
     }
     public function getAuthor()
@@ -97,11 +97,11 @@ class SamsPHPBook extends AbstractPHPBook
         $rand_num = mt_rand(0, 1);
 
         if (1 > $rand_num) {
-            $this->author = 'George Schlossnagle';
-            $this->title  = 'Advanced PHP Programming';
+            $this->author = "George Schlossnagle\n";
+            $this->title  = "Advanced PHP Programming\n";
         } else {
-            $this->author = 'Christian Wenz';
-            $this->title  = 'PHP Phrasebook';
+            $this->author = "Christian Wenz\n";
+            $this->title  = "PHP Phrasebook\n";
         }
     }
     public function getAuthor()
@@ -132,41 +132,28 @@ class VisualQuickstartPHPBook extends AbstractPHPBook
     }
 }
 
-    TESTING:
-
-
-    writeln('START TESTING FACTORY METHOD PATTERN');
-    writeln('');
-
-    writeln('testing OReillyFactoryMethod');
     $factoryMethodInstance = new OReillyFactoryMethod;
     testFactoryMethod($factoryMethodInstance);
-    writeln('');
 
-    writeln('testing SamsFactoryMethod');
-    $factoryMethodInstance = new SamsFactoryMethod;
     testFactoryMethod($factoryMethodInstance);
-    writeln('');
 
-    writeln('END TESTING FACTORY METHOD PATTERN');
-    writeln('');
 
     function testFactoryMethod($factoryMethodInstance)
     {
         $phpUs = $factoryMethodInstance->makePHPBook("us");
-        writeln('us php Author: '.$phpUs->getAuthor());
-        writeln('us php Title: '.$phpUs->getTitle());
+        writeln('Us php Author: '.$phpUs->getAuthor());
+        writeln('Us php Title: '.$phpUs->getTitle());
 
         $phpUs = $factoryMethodInstance->makePHPBook("other");
-        writeln('other php Author: '.$phpUs->getAuthor());
-        writeln('other php Title: '.$phpUs->getTitle());
+        writeln('Other php Author: '.$phpUs->getAuthor());
+        writeln('Other php Title: '.$phpUs->getTitle());
 
         $phpUs = $factoryMethodInstance->makePHPBook("otherother");
-        writeln('otherother php Author: '.$phpUs->getAuthor());
-        writeln('otherother php Title: '.$phpUs->getTitle());
+        writeln('Other php Author: '.$phpUs->getAuthor());
+        writeln('Other php Title: '.$phpUs->getTitle());
     }
 
     function writeln($line_in)
     {
-        echo $line_in."<br/>";
+        echo $line_in;
     }

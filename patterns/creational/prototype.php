@@ -31,12 +31,12 @@ $obj->object2 = new SubObject();
 
 $obj2 = clone $obj;
 
-echo "Original Object:\n"."<br/>";
+echo "Original Object:\n";
 foreach ($obj as $o) {
     print_r($o);
 }
 
-echo "Cloned Object:\n"."<br/>";
+echo "Cloned Object:\n";
 foreach ($obj2 as $o) {
     print_r($o);
 }

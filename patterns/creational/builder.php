@@ -39,12 +39,12 @@ class HTMLPage
     }
     public function formatPage()
     {
-        $this->page  = '<html>';
-        $this->page .= '<head><title>'.$this->page_title.'</title></head>';
-        $this->page .= '<body>';
-        $this->page .= '<h1>'.$this->page_heading.'</h1>';
-        $this->page .= $this->page_text;
-        $this->page .= '</body>';
+        $this->page  = "<html>\n";
+        $this->page .= "<head>\n\t<title>\n\t\t".$this->page_title."\n\t</title>\n</head>\n";
+        $this->page .="<body>\n";
+        $this->page .= "\t<h1>\n\t\t".$this->page_heading."\n\t</h1>\n";
+        $this->page .= "\t\t".$this->page_text;
+        $this->page .= "\n\t</body>\n";
         $this->page .= '</html>';
     }
 }
@@ -100,19 +100,14 @@ class HTMLPageDirector extends AbstractPageDirector
     }
 }
 
-  writeln('BEGIN TESTING BUILDER PATTERN');
-  writeln('');
-
   $pageBuilder = new HTMLPageBuilder();
   $pageDirector = new HTMLPageDirector($pageBuilder);
   $pageDirector->buildPage();
   $page = $pageDirector->GetPage();
   writeln($page->showPage());
-  writeln('');
  
-  writeln('END TESTING BUILDER PATTERN');
 
   function writeln($line_in)
   {
-      echo $line_in."<br/>";
+      echo $line_in."\n";
   }
