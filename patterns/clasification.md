@@ -23,10 +23,12 @@ STRUCTURAL(compositional, logic internal to the structure)
             -wrapped in constructor
             -inheritance is not feasible because it is static and applies to an entire class
             -decorate object at run-time,
+            -more flexible then inheritance
             -same interface as wrapped class
             -alternative to subclassing
             -must be a subclass of wrapped interface/object
         -Proxy 
+            -limit access
             -surrogate for another object/
             -same interface as wrapped class
             -wrapped may not exist
@@ -46,6 +48,10 @@ STRUCTURAL(compositional, logic internal to the structure)
             -different interface 
     * Composite (composite/leaf, recursive composition)
     * Flyweight (sharing expensive resources)
+            -share what is common
+                -intrinsic
+            -extrinsic
+        
 
 BEHAVIORAL (decompositional,external to structure)
 ==================================================
