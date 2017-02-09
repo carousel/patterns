@@ -69,10 +69,8 @@ class BookTitleStarDecorator extends BookTitleDecorator
     }
 }
 
-  writeln('BEGIN TESTING DECORATOR PATTERN');
-  writeln('');
 
-  $patternBook = new Book('Gamma, Helm, Johnson, and Vlissides', 'Design Patterns');
+  $patternBook = new Book("Gamma, Helm, Johnson, and Vlissides\n", 'Design Patterns');
  
   $decorator = new BookTitleDecorator($patternBook);
   $starDecorator = new BookTitleStarDecorator($decorator);
@@ -98,9 +96,8 @@ class BookTitleStarDecorator extends BookTitleDecorator
   writeln($decorator->showTitle());
   writeln('');
 
-  writeln('END TESTING DECORATOR PATTERN');
 
   function writeln($line_in)
   {
-      echo $line_in."<br/>";
+      echo $line_in."\n";
   }

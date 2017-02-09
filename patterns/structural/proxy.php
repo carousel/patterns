@@ -109,7 +109,6 @@ class Book
     }
 }
 
-  writeln('BEGIN TESTING PROXY PATTERN');
   writeln('');
  
   $proxyBookList = new ProxyBookList();
@@ -131,9 +130,8 @@ class Book
   writeln($proxyBookList->getBookCount());
   writeln('');
 
-  writeln('END TESTING PROXY PATTERN');
 
   function writeln($line_in)
   {
-      echo $line_in."<br/>";
+      echo $line_in."\n";
   }

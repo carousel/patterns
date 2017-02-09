@@ -74,7 +74,6 @@ class FlyweightBookShelf
     }
 }
 
-  writeln('BEGIN TESTING FLYWEIGHT PATTERN');
  
   $flyweightFactory = new FlyweightFactory();
   $flyweightBookShelf1 =  new FlyweightBookShelf();
@@ -108,9 +107,8 @@ class FlyweightBookShelf
   writeln($flyweightBookShelf2->showBooks());
   writeln('');
 
-  writeln('END TESTING FLYWEIGHT PATTERN');
  
   function writeln($line_in)
   {
-      echo $line_in."<br/>";
+      echo $line_in."\n";
   }

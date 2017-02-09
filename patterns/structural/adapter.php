@@ -37,11 +37,11 @@ class BookAdapter
 
   $book = new SimpleBook("Gamma, Helm, Johnson, and Vlissides", "Design Patterns");
   $bookAdapter = new BookAdapter($book);
-  writeln("Author and Title:\n".$bookAdapter->getAuthorAndTitle());
+  writeln("Author and Title:".$bookAdapter->getAuthorAndTitle());
   writeln('');
 
 
   function writeln($line_in)
   {
-      echo $line_in;
+      echo $line_in . "\n";
   }
