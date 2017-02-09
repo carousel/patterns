@@ -6,8 +6,12 @@ CREATIONAL
         -must be subclassed
         - abstract what is common for all classes
         - client calls concrete class
-    -Factory Method (without family)
-    -Builder (build complex object in steps with common instructions)
+    -Factory Method 
+        - without family relation
+        - let subclass decide what to instantiate
+    -Builder    
+        - build complex object in steps with common instructions
+        - 
     -Prototype (__clone to other slot of memory,delegation)
     -Singleton (class has only one instance, with global point of access)
 
@@ -17,17 +21,23 @@ STRUCTURAL(compositional, logic internal to the structure)
         -Decorator 
             -smart proxy
             -wrapped in constructor
+            -inheritance is not feasible because it is static and applies to an entire class
             -decorate object at run-time,
+            -more flexible then inheritance
             -same interface as wrapped class
-            -alternative to subclassing)
+            -alternative to subclassing
             -must be a subclass of wrapped interface/object
         -Proxy 
+            -limit access
             -surrogate for another object/
             -same interface as wrapped class
             -wrapped may not exist
             -no object in constructor
         -Bridge 
             -more complex variation of adapter
+            -run-time binding of the implementation
+            -makes things work before design
+            -common interface
             -decouple an abstraction from implementation/orthogonal
         -Adapter 
             -convert interface into one that clients expect (for one or many objects)
@@ -38,6 +48,10 @@ STRUCTURAL(compositional, logic internal to the structure)
             -different interface 
     * Composite (composite/leaf, recursive composition)
     * Flyweight (sharing expensive resources)
+            -share what is common
+                -intrinsic
+            -extrinsic
+        
 
 BEHAVIORAL (decompositional,external to structure)
 ==================================================

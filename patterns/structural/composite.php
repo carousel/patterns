@@ -142,5 +142,5 @@ class SeveralBooks extends OnTheBookShelf
  
   function writeln($line_in)
   {
-      echo $line_in."<br/>";
+      echo $line_in."\n";
   }
