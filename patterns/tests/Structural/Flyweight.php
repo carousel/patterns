@@ -30,8 +30,6 @@ class Facade extends \PHPUnit_Framework_TestCase
         $this->assertEquals($this->flyweightBook1, $this->flyweightBook1);
 
         echo($this->flyweightBookShelf1->showBooks());
-
-
-  //writeln($flyweightBookShelf2->showBooks());
+        //writeln($flyweightBookShelf2->showBooks());
     }
 }
