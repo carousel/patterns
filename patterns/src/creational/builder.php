@@ -100,14 +100,3 @@ class HTMLPageDirector extends AbstractPageDirector
     }
 }
 
-  $pageBuilder = new HTMLPageBuilder();
-  $pageDirector = new HTMLPageDirector($pageBuilder);
-  $pageDirector->buildPage();
-  $page = $pageDirector->GetPage();
-  writeln($page->showPage());
- 
-
-  function writeln($line_in)
-  {
-      echo $line_in."\n";
-  }

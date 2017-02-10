@@ -31,17 +31,3 @@ class BookAdapter
         return $this->book->getTitle().' by '.$this->book->getAuthor();
     }
 }
-
-  // client
-
-
-  $book = new SimpleBook("Gamma, Helm, Johnson, and Vlissides", "Design Patterns");
-  $bookAdapter = new BookAdapter($book);
-  writeln("Author and Title:".$bookAdapter->getAuthorAndTitle());
-  writeln('');
-
-
-  function writeln($line_in)
-  {
-      echo $line_in . "\n";
-  }

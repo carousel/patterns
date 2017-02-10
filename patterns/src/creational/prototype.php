@@ -24,19 +24,15 @@ class MyCloneable
     }
 }
 
-$obj = new MyCloneable();
 
-$obj->object1 = new SubObject();
-$obj->object2 = new SubObject();
+//$obj2 = clone $obj;
 
-$obj2 = clone $obj;
+//echo "Original Object:\n";
+//foreach ($obj as $o) {
+    //print_r($o);
+//}
 
-echo "Original Object:\n";
-foreach ($obj as $o) {
-    print_r($o);
-}
-
-echo "Cloned Object:\n";
-foreach ($obj2 as $o) {
-    print_r($o);
-}
+//echo "Cloned Object:\n";
+//foreach ($obj2 as $o) {
+    //print_r($o);
+//}

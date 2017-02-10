@@ -14,12 +14,6 @@
             "role": "Developer"
         }
     ],
-    "autoload": {
-        "files": [
-            "src/creational/abstract_factory.php",
-            "src/creational/factory_method.php"
-        ]
-    },
     "scripts": {
         "test": "phpunit",
         "check-style": "phpcs -p --standard=PSR2 --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 src tests",

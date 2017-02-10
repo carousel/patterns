@@ -82,37 +82,3 @@ class BookBorrower
     }
 }
  
-/*
- *   Initialization
- */
-
-
-  $bookBorrower1 = new BookBorrower();
-  $bookBorrower2 = new BookBorrower();
-
-  $bookBorrower1->borrowBook();
-  writeln("BookBorrower1 asked to borrow the book\n");
-  writeln("BookBorrower1 Author and Title:\n");
-  writeln($bookBorrower1->getAuthorAndTitle());
-  writeln('');
-
-  $bookBorrower2->borrowBook();
-  writeln("BookBorrower2 asked to borrow the book\n");
-  writeln("BookBorrower2 Author and Title:\n");
-  writeln($bookBorrower2->getAuthorAndTitle());
-  writeln('');
-
-  $bookBorrower1->returnBook();
-  writeln("BookBorrower1 returned the book\n");
-  writeln('');
-
-  $bookBorrower2->borrowBook();
-  writeln("BookBorrower2 Author and Title:\n");
-  writeln($bookBorrower1->getAuthorAndTitle());
-  writeln('');
-
-
-  function writeln($line_in)
-  {
-      echo $line_in;
-  }
