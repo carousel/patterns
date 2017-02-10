@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Decorator" file="/var/www/patterns/patterns/tests/Structural/Decorator.php" tests="1" assertions="2" failures="0" errors="0" time="0.000861">
-    <testcase name="decoratorTest" class="Decorator" file="/var/www/patterns/patterns/tests/Structural/Decorator.php" line="21" assertions="2" time="0.000861"/>
+  <testsuite name="Facade" file="/var/www/patterns/patterns/tests/Structural/Flyweight.php" tests="1" assertions="2" failures="0" errors="0" time="0.001353">
+    <testcase name="flyweightTest" class="Facade" file="/var/www/patterns/patterns/tests/Structural/Flyweight.php" line="28" assertions="2" time="0.001353">
+      <system-out>title: Larry Truett  author: PHP For Catstitle: Larry Truett  author: PHP For Catstitle: Larry Truett  author: PHP For Dogs</system-out>
+    </testcase>
   </testsuite>
 </testsuites>
