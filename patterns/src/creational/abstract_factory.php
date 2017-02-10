@@ -141,28 +141,4 @@ class SamsPHPBook extends AbstractPHPBook
 }/*}}}*/
 
 
-  echo('BEGIN TESTING ABSTRACT FACTORY PATTERN' . "\n");
 
-  echo("\n" . 'TESTING OREILLY BOOK FACTORY' . "\n");
-  $bookFactoryInstance = new OReillyBookFactory;
-  testConcreteFactory($bookFactoryInstance);
-
-  echo("\n" . 'TESTING SAMS BOOK FACTORY' . "\n");
-  $bookFactoryInstance = new SamsBookFactory;
-  testConcreteFactory($bookFactoryInstance);
-
-
-  function testConcreteFactory($bookFactoryInstance)
-  {
-      $phpBookOne = $bookFactoryInstance->makePHPBook();
-      echo('first php Author: '.$phpBookOne->getAuthor() . "\n");
-      echo('first php Title: '.$phpBookOne->getTitle() . "\n");
-
-      $phpBookTwo = $bookFactoryInstance->makePHPBook();
-      echo('second php Author: '.$phpBookTwo->getAuthor() . "\n");
-      echo('second php Title: '.$phpBookTwo->getTitle() . "\n");
-
-      $mySqlBook = $bookFactoryInstance->makeMySQLBook();
-      echo('MySQL Author: '.$mySqlBook->getAuthor() . "\n");
-      echo('MySQL Title: '.$mySqlBook->getTitle() . "\n");
-  }

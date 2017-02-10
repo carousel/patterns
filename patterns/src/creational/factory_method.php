@@ -132,28 +132,3 @@ class VisualQuickstartPHPBook extends AbstractPHPBook
     }
 }
 
-    $factoryMethodInstance = new OReillyFactoryMethod;
-    testFactoryMethod($factoryMethodInstance);
-
-    testFactoryMethod($factoryMethodInstance);
-
-
-    function testFactoryMethod($factoryMethodInstance)
-    {
-        $phpUs = $factoryMethodInstance->makePHPBook("us");
-        writeln('Us php Author: '.$phpUs->getAuthor());
-        writeln('Us php Title: '.$phpUs->getTitle());
-
-        $phpUs = $factoryMethodInstance->makePHPBook("other");
-        writeln('Other php Author: '.$phpUs->getAuthor());
-        writeln('Other php Title: '.$phpUs->getTitle());
-
-        $phpUs = $factoryMethodInstance->makePHPBook("otherother");
-        writeln('Other php Author: '.$phpUs->getAuthor());
-        writeln('Other php Title: '.$phpUs->getTitle());
-    }
-
-    function writeln($line_in)
-    {
-        echo $line_in;
-    }
