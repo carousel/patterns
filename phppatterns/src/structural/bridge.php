@@ -70,18 +70,3 @@ class BridgeBookStarsImp extends BridgeBookImp
         return Str_replace(" ", "*", $title_in);
     }
 }
-
- 
-  //$book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats", 'CAPS');
-  //writeln($book->showAuthorTitle());
-
-  //$book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats", 'STARS');
-  //writeln($book->showAuthorTitle());
-
-  //$book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats", 'CAPS');
-  //writeln($book->showTitleAuthor());
-
-  //$book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats", 'STARS');
-  //writeln($book->showTitleAuthor());
-
-

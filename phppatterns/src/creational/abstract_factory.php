@@ -139,6 +139,3 @@ class SamsPHPBook extends AbstractPHPBook
         return $this->title;
     }
 }/*}}}*/
-
-
-

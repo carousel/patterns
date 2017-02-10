@@ -131,4 +131,3 @@ class VisualQuickstartPHPBook extends AbstractPHPBook
         return $this->title;
     }
 }
-

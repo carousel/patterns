@@ -23,16 +23,3 @@ class MyCloneable
         $this->object1 = clone $this->object1;
     }
 }
-
-
-//$obj2 = clone $obj;
-
-//echo "Original Object:\n";
-//foreach ($obj as $o) {
-    //print_r($o);
-//}
-
-//echo "Cloned Object:\n";
-//foreach ($obj2 as $o) {
-    //print_r($o);
-//}

@@ -89,11 +89,3 @@ class SeveralBooks extends OnTheBookShelf
         return $this->getBookCount();
     }
 }
-
- 
-
-
- 
- 
-
- 

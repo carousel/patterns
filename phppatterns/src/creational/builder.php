@@ -99,4 +99,3 @@ class HTMLPageDirector extends AbstractPageDirector
         return $this->builder->getPage();
     }
 }
-

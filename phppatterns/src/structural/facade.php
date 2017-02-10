@@ -81,8 +81,3 @@ class ArrayStringFunctions
         return str_split($stringIn);
     }
 }
-
-
- 
-
- 
