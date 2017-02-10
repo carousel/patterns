@@ -72,27 +72,16 @@ class BridgeBookStarsImp extends BridgeBookImp
 }
 
  
-  writeln("Test 1 - author title with caps:");
-  $book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats", 'CAPS');
-  writeln($book->showAuthorTitle());
-  writeln('');
+  //$book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats", 'CAPS');
+  //writeln($book->showAuthorTitle());
 
-  writeln("Test 2 - author title with stars:");
-  $book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats", 'STARS');
-  writeln($book->showAuthorTitle());
-  writeln('');
+  //$book = new BridgeBookAuthorTitle('Larry Truett', "PHP for Cats", 'STARS');
+  //writeln($book->showAuthorTitle());
 
-  writeln("test 3 - title author with caps");
-  $book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats", 'CAPS');
-  writeln($book->showTitleAuthor());
-  writeln('');
+  //$book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats", 'CAPS');
+  //writeln($book->showTitleAuthor());
 
-  writeln("test 4 - title author with starsn");
-  $book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats", 'STARS');
-  writeln($book->showTitleAuthor());
+  //$book = new BridgeBookTitleAuthor('Larry Truett', "PHP for Cats", 'STARS');
+  //writeln($book->showTitleAuthor());
 
 
-  function writeln($line_in)
-  {
-      echo $line_in . "\n";
-  }

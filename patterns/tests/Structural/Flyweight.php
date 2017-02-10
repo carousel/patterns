@@ -2,7 +2,7 @@
 
 require __DIR__  . "../../../src/structural/flyweight.php";
 
-class Facade extends \PHPUnit_Framework_TestCase
+class Flyweight extends \PHPUnit_Framework_TestCase
 {
     /**
     * Instantiate PHPDelete class
