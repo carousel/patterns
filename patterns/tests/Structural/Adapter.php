@@ -2,7 +2,7 @@
 
 require __DIR__  . "../../../src/structural/adapter.php";
 
-class CreationalTests extends \PHPUnit_Framework_TestCase
+class Adapter extends \PHPUnit_Framework_TestCase
 {
     /**
     * Instantiate PHPDelete class

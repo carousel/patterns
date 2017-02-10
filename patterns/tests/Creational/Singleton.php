@@ -2,7 +2,7 @@
 
 require __DIR__  . "../../../src/creational/singleton.php";
 
-class CreationalTests extends \PHPUnit_Framework_TestCase
+class Singleton extends \PHPUnit_Framework_TestCase
 {
     /**
     * Instantiate factory method

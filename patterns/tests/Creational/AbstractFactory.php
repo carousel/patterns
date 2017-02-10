@@ -2,7 +2,7 @@
 
 require __DIR__  . "../../../src/creational/abstract_factory.php";
 
-class CreationalTests extends \PHPUnit_Framework_TestCase
+class AbstractFactory extends \PHPUnit_Framework_TestCase
 {
     /**
     * Instantiate PHPDelete class

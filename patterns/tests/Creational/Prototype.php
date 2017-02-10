@@ -2,7 +2,7 @@
 
 require __DIR__  . "../../../src/creational/prototype.php";
 
-class CreationalTests extends \PHPUnit_Framework_TestCase
+class Prototype extends \PHPUnit_Framework_TestCase
 {
     /**
     * Instantiate factory method

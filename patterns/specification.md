@@ -1,0 +1,16 @@
+#SPECIFICATION FOR ARCHITECTURE PATTERNS
+
+#FRAMEWORK
+*   DI
+#HTTP 
+*   Request
+*   Response
+#MVC
+*   Model
+*   View
+*   Controller
+
+#DOMAIN,ORM
+#SECURITY
+#PERFORMANCE
+#CONFIG

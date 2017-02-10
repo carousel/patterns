@@ -84,18 +84,5 @@ class ArrayStringFunctions
 
 
  
-  $book = new Book('Design Patterns', 'Gamma, Helm, Johnson, and Vlissides');
-
-  writeln('Original book title: '.$book->getTitle());
-  writeln('');
-
-  $bookTitleReversed = CaseReverseFacade::reverseStringCase($book->getTitle());
- 
-  writeln('Reversed book title: '.$bookTitleReversed);
-  writeln('');
 
  
-  function writeln($line_in)
-  {
-      echo $line_in."\n";
-  }

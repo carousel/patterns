@@ -2,7 +2,7 @@
 
 require __DIR__  . "../../../src/creational/builder.php";
 
-class CreationalTests extends \PHPUnit_Framework_TestCase
+class Builder extends \PHPUnit_Framework_TestCase
 {
     /**
     * Instantiate factory method
