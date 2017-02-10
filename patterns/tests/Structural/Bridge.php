@@ -5,8 +5,10 @@ require __DIR__  . "../../../src/structural/bridge.php";
 class Bridge extends \PHPUnit_Framework_TestCase
 {
     /**
-      * @test
-      */
+     * @test
+     *
+     * @return void
+     */
     public function bridgeTest()
     {
         //first implementation with same interface

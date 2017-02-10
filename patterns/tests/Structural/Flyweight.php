@@ -11,9 +11,11 @@ class Flyweight extends \PHPUnit_Framework_TestCase
     {
         $this->flyweightFactory = new FlyweightFactory();
     }
-     /**
-      * @test
-      */
+    /**
+     * @test
+     *
+     * @return void
+     */
     public function flyweightTest()
     {
         //add/create one book

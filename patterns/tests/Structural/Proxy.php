@@ -12,17 +12,18 @@ class Proxy extends \PHPUnit_Framework_TestCase
         $this->proxyBookList = new ProxyBookList();
         $this->inBook = new Book('PHP for Cats', 'Larry Truett');
     }
-     /**
-      * @test
-      */
+    /**
+     * @test
+     *
+     * @return void
+     */
     public function proxyTest()
     {
         $this->proxyBookList->addBook($this->inBook);
-        $this->assertEquals($this->proxyBookList->getBookCount(),1);
+        $this->assertEquals($this->proxyBookList->getBookCount(), 1);
 
         $outBook = $this->proxyBookList->getBook(1);
         $this->proxyBookList->removeBook($outBook);
-        $this->assertEquals($this->proxyBookList->getBookCount(),0);
+        $this->assertEquals($this->proxyBookList->getBookCount(), 0);
     }
 }
-

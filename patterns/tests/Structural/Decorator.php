@@ -13,16 +13,16 @@ class Decorator extends \PHPUnit_Framework_TestCase
         $this->decorator = new BookTitleDecorator($this->patternBook);
         $this->starDecorator = new BookTitleStarDecorator($this->decorator);
         $this->exclaimDecorator = new BookTitleExclaimDecorator($this->decorator);
- 
     }
-     /**
-      * @test
-      */
+    /**
+     * @test
+     *
+     * @return void
+     */
     public function decoratorTest()
     {
-        $this->assertEquals($this->decorator->showTitle(),"Gamma, Helm, Johnson, and Vlissides");
+        $this->assertEquals($this->decorator->showTitle(), "Gamma, Helm, Johnson, and Vlissides");
         $this->exclaimDecorator->exclaimTitle();
-        $this->assertEquals($this->decorator->showTitle(),"!Gamma, Helm, Johnson, and Vlissides!");
+        $this->assertEquals($this->decorator->showTitle(), "!Gamma, Helm, Johnson, and Vlissides!");
     }
 }
-

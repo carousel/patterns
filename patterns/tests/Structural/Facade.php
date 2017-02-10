@@ -10,17 +10,17 @@ class Facade extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         $this->book = new Book('Design Patterns', 'Gamma, Helm, Johnson, and Vlissides');
- 
     }
-     /**
-      * @test
-      */
+    /**
+     * @test
+     *
+     * @return void
+     */
     public function facadeTest()
     {
         $bookTitleReversed = CaseReverseFacade::reverseStringCase($this->book->getTitle());
         $title = $this->book->getTitle();
-        $this->assertEquals($this->book->getTitle(),$title);
-        $this->assertEquals($bookTitleReversed,'dESIGN pATTERNS');
+        $this->assertEquals($this->book->getTitle(), $title);
+        $this->assertEquals($bookTitleReversed, 'dESIGN pATTERNS');
     }
 }
-

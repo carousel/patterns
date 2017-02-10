@@ -11,7 +11,6 @@ CREATIONAL
         - let subclass decide what to instantiate
     -Builder    
         - build complex object in steps with common instructions
-        - 
     -Prototype (__clone to other slot of memory,delegation)
     -Singleton (class has only one instance, with global point of access)
 
@@ -51,7 +50,6 @@ STRUCTURAL(compositional, logic internal to the structure)
             -share what is common
                 -intrinsic
             -extrinsic
-        
 
 BEHAVIORAL (decompositional,external to structure)
 ==================================================

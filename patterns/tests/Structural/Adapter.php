@@ -12,9 +12,11 @@ class Adapter extends \PHPUnit_Framework_TestCase
         $this->book = new SimpleBook("Gamma, Helm, Johnson, and Vlissides", "Design Patterns");
         $this->bookAdapter = new BookAdapter($this->book);
     }
-     /**
-      * @test
-      */
+    /**
+     * @test
+     *
+     * @return void
+     */
     public function adapterTest()
     {
         $result = $this->bookAdapter->getAuthorAndTitle();

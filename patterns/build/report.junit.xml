@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="Bridge" file="/var/www/patterns/patterns/tests/Structural/Bridge.php" tests="1" assertions="2" failures="0" errors="0" time="0.000865">
-    <testcase name="bridgeTest" class="Bridge" file="/var/www/patterns/patterns/tests/Structural/Bridge.php" line="10" assertions="2" time="0.000865"/>
+  <testsuite name="Composite" file="/var/www/patterns/patterns/tests/Structural/Composite.php" tests="1" assertions="7" failures="0" errors="0" time="0.000296">
+    <testcase name="compositeTest" class="Composite" file="/var/www/patterns/patterns/tests/Structural/Composite.php" line="19" assertions="7" time="0.000296"/>
   </testsuite>
 </testsuites>
