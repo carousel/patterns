@@ -30,7 +30,7 @@ class FlyweightFactory
     }
     public function getBook($bookKey)
     {
-        if (null == $this->books[$bookKey]) {
+        if (!$this->books[$bookKey]) {
             $makeFunction = 'makeBook'.$bookKey;
             $this->books[$bookKey] = $this->$makeFunction();
         }
@@ -55,21 +55,19 @@ class FlyweightFactory
         $book = new FlyweightBook('Larry Truett', 'PHP For Parakeets');
         return $book;
     }
+    public function getBooksCount()
+    {
+        return count($this->books);
+    }
+    public function getBooks()
+    {
+        $filtered = [];
+        foreach($this->books as $book){
+            if($book != null){
+                $filtered[] = $book;
+            }
+        }
+        return $filtered;
+    }
 }
  
-class FlyweightBookShelf
-{
-    private $books = array();
-    public function addBook($book)
-    {
-        $this->books[] = $book;
-    }
-    public function showBooks()
-    {
-        $return_string = null;
-        foreach ($this->books as $book) {
-            $return_string .= 'title: '.$book->getAuthor().'  author: '.$book->getTitle();
-        };
-        return $return_string;
-    }
-}
