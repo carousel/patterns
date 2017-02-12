@@ -62,12 +62,11 @@ class FlyweightFactory
     public function getBooks()
     {
         $filtered = [];
-        foreach($this->books as $book){
-            if($book != null){
+        foreach ($this->books as $book) {
+            if ($book != null) {
                 $filtered[] = $book;
             }
         }
         return $filtered;
     }
 }
- 

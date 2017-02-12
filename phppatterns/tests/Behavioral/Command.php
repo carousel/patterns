@@ -25,8 +25,10 @@ class Command extends \PHPUnit_Framework_TestCase
         }
         $starsOn = new BookStarsOnCommand($this->book);
         callCommand($starsOn);
+        $this->assertEquals($this->book->getTitle(), 'Design*Patterns');
  
         $starsOff = new BookStarsOffCommand($this->book);
         callCommand($starsOff);
+        $this->assertEquals($this->book->getTitle(), 'Design Patterns');
     }
 }

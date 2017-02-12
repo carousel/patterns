@@ -1,80 +1,104 @@
 <?php
 
-abstract class AbstractBookTopic {
-    abstract function getTopic();
-    abstract function getTitle();
-    abstract function setTitle($title_in);
+abstract class AbstractBookTopic
+{
+    abstract public function getTopic();
+    abstract public function getTitle();
+    abstract public function setTitle($title_in);
 }
  
-class BookTopic extends AbstractBookTopic {
+class BookTopic extends AbstractBookTopic
+{
     private $topic;
     private $title;
-    function __construct($topic_in) {
-      $this->topic = $topic_in;
-	  $this->title = NULL;
+    public function __construct($topic_in)
+    {
+        $this->topic = $topic_in;
+        $this->title = null;
     }
-    function getTopic() {
-      return $this->topic;
+    public function getTopic()
+    {
+        return $this->topic;
     }
     //this is the end of the chain - returns title or says there is none
-    function getTitle() {
-      if (NULL != $this->title) {
-        return $this->title;
-      } else {
-        return 'there is no title avaialble';
-      }
+    public function getTitle()
+    {
+        if (null != $this->title) {
+            return $this->title;
+        } else {
+            return 'there is no title avaialble';
+        }
     }
-    function setTitle($title_in) {$this->title = $title_in;}
+    public function setTitle($title_in)
+    {
+        $this->title = $title_in;
+    }
 }
 
-class BookSubTopic extends AbstractBookTopic {
+class BookSubTopic extends AbstractBookTopic
+{
     private $topic;
     private $parentTopic;
     private $title;
-    function __construct($topic_in, BookTopic $parentTopic_in) {
-      $this->topic = $topic_in;
-      $this->parentTopic = $parentTopic_in;
-	  $this->title = NULL;
+    public function __construct($topic_in, BookTopic $parentTopic_in)
+    {
+        $this->topic = $topic_in;
+        $this->parentTopic = $parentTopic_in;
+        $this->title = null;
     }
-    function getTopic() {
-      return $this->topic;
+    public function getTopic()
+    {
+        return $this->topic;
     }
-    function getParentTopic() {
-      return $this->parentTopic;
-    }	
-    function getTitle() {
-      if (NULL != $this->title) {
-        return $this->title;
-      } else {
-        return $this->parentTopic->getTitle();
-      }
+    public function getParentTopic()
+    {
+        return $this->parentTopic;
     }
-    function setTitle($title_in) {$this->title = $title_in;}
+    public function getTitle()
+    {
+        if (null != $this->title) {
+            return $this->title;
+        } else {
+            return $this->parentTopic->getTitle();
+        }
+    }
+    public function setTitle($title_in)
+    {
+        $this->title = $title_in;
+    }
 }
 
-class BookSubSubTopic extends AbstractBookTopic {
+class BookSubSubTopic extends AbstractBookTopic
+{
     private $topic;
     private $parentTopic;
     private $title;
-    function __construct($topic_in, BookSubTopic $parentTopic_in) {
-      $this->topic = $topic_in;
-      $this->parentTopic = $parentTopic_in;
-	  $this->title = NULL;
+    public function __construct($topic_in, BookSubTopic $parentTopic_in)
+    {
+        $this->topic = $topic_in;
+        $this->parentTopic = $parentTopic_in;
+        $this->title = null;
     }
-    function getTopic() {
-      return $this->topic;
+    public function getTopic()
+    {
+        return $this->topic;
     }
-    function getParentTopic() {
-      return $this->parentTopic;
-    }	
-    function getTitle() {
-      if (NULL != $this->title) {
-        return $this->title;
-      } else {
-        return $this->parentTopic->getTitle();
-      }
+    public function getParentTopic()
+    {
+        return $this->parentTopic;
     }
-    function setTitle($title_in) {$this->title = $title_in;}
+    public function getTitle()
+    {
+        if (null != $this->title) {
+            return $this->title;
+        } else {
+            return $this->parentTopic->getTitle();
+        }
+    }
+    public function setTitle($title_in)
+    {
+        $this->title = $title_in;
+    }
 }
 
   writeln("BEGIN TESTING CHAIN OF RESPONSIBILITY PATTERN");
@@ -92,7 +116,7 @@ class BookSubSubTopic extends AbstractBookTopic {
   writeln("title: " . $bookTopic->getTitle());
   writeln("");
  
-  $bookSubTopic = new BookSubTopic("PHP 5 Patterns",$bookTopic);
+  $bookSubTopic = new BookSubTopic("PHP 5 Patterns", $bookTopic);
   writeln("bookSubTopic before title is set: ");
   writeln("topic: " . $bookSubTopic->getTopic());
   writeln("title: " . $bookSubTopic->getTitle());
@@ -111,7 +135,7 @@ class BookSubSubTopic extends AbstractBookTopic {
   writeln("title: " . $bookSubSubTopic->getTitle());
   writeln("");
 
-  $bookSubTopic->setTitle(NULL);
+  $bookSubTopic->setTitle(null);
   writeln("bookSubSubTopic with no title for set for bookSubTopic either:");
   writeln("topic: " . $bookSubSubTopic->getTopic());
   writeln("title: " . $bookSubSubTopic->getTitle());
@@ -119,7 +143,7 @@ class BookSubSubTopic extends AbstractBookTopic {
 
   writeln("END TESTING CHAIN OF RESPONSIBILITY PATTERN");
 
-  function writeln($line_in) {
-    echo $line_in."<br/>";
+  function writeln($line_in)
+  {
+      echo $line_in."<br/>";
   }
-?>
