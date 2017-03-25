@@ -81,6 +81,8 @@ class Book
  
   $book = new Book('PHP for Cats', 'Larry Truett');;
   $context = new BookContext($book);
+  $book = new Book('PHP for Cats','Larry Truett');;
+  $context = new bookContext($book);
  
   echo('test 1 - show name ');
   echo($context->getBookTitle()) . "\n";
@@ -95,3 +97,5 @@ class Book
   echo($context->getBookTitle());
 
  
+
+?>
