@@ -51,27 +51,36 @@ STRUCTURAL(compositional, logic internal to the structure)
                 -intrinsic
             -extrinsic
 
-BEHAVIORAL (decompositional,external to structure)
+BEHAVIORAL (DECOMPOSITIONAL,EXTERNAL TO STRUCTURE)
 ==================================================
-###SENDER/RECEIVER
-        -Observer 
-            -one to many
-            -observer is registered
-            -view example
-            -query for subject state
-            -pull
-        -Mediator 
-            -encapsulates communication between multiple objects
-    -Strategy (interchangeable algorithms)
-        -code to an interface (different algorithm implementation?)
-    -Command 
-        -invoker/receiver paradigm
-        -execute command on receiver
-    -Chain (multiple handlers for request/next)
-    -Iterator (access aggregate object without internals)
-    -Memento (capture objects internal state/for restoring state)
-    -State (change behaviour depend on state)
-    -Template Method (algorithm skeleton in a base class)
-    -Visitor (define new operation without changing classes/recursive structure)
-    -Interpreter
+#SENDER/RECEIVER
+##Observer 
+*   one to many
+*   observer is registered
+*   view example
+*   query for subject state
+*   pull
+##Mediator 
+*   encapsulates communication between multiple objects
+##Strategy (interchangeable algorithms)
+*   code to an interface (different algorithm implementation?)
+##Command 
+*   invoker/receiver paradigm
+*   execute command on receiver
+##Chain (multiple handlers for request/next)
+##Iterator (access aggregate object without internals)
+##Memento 
+*   bookmark
+*   capture objects internal state/for restoring state
+*   snapshot
+##State 
+*   in a context
+*   finite numbet of states
+*   change behaviour depending on state
+*   extract state into different classes
+*   order of state change
+*   transition to state
+##Template Method (algorithm skeleton in a base class)
+##Visitor (define new operation without changing classes/recursive structure)
+##Interpreter
 
