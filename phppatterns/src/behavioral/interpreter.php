@@ -1,115 +1,129 @@
 <?php
 
-class Interpreter {  
+class Interpreter
+{
     private $bookList;
-    public function __construct($bookListIn) {
-      $this->bookList = $bookListIn;
+    public function __construct($bookListIn)
+    {
+        $this->bookList = $bookListIn;
     }
-    public function interpret($stringIn) {      
-      $arrayIn = explode(" ",$stringIn);      
-      $returnString = NULL;      
-      // go through the array validating 
+    public function interpret($stringIn)
+    {
+        $arrayIn = explode(" ", $stringIn);
+        $returnString = null;
+      // go through the array validating
       // and if possible calling a book method
-      // could use refactoring, some duplicate logic 
+      // could use refactoring, some duplicate logic
       if ('book' == $arrayIn[0]) {
-        if ('author' == $arrayIn[1]) {
-          if (is_numeric($arrayIn[2])) {
-            $book = $this->bookList->getBook($arrayIn[2]);
-            if (NULL == $book) {
-              $returnString = 'Can not process, there is no book # '.$arrayIn[2]; 
-            } else {
-              $returnString = $book->getAuthor(); 
-            }
-          } elseif ('title' == $arrayIn[2]) {
-            if (is_numeric($arrayIn[3])) {
-              $book = $this->bookList->getBook($arrayIn[3]);
-              if (NULL == $book) {
-                $returnString = 'Can not process, there is no book # '.
-                  $arrayIn[3]; 
+          if ('author' == $arrayIn[1]) {
+              if (is_numeric($arrayIn[2])) {
+                  $book = $this->bookList->getBook($arrayIn[2]);
+                  if (null == $book) {
+                      $returnString = 'Can not process, there is no book # '.$arrayIn[2];
+                  } else {
+                      $returnString = $book->getAuthor();
+                  }
+              } elseif ('title' == $arrayIn[2]) {
+                  if (is_numeric($arrayIn[3])) {
+                      $book = $this->bookList->getBook($arrayIn[3]);
+                      if (null == $book) {
+                          $returnString = 'Can not process, there is no book # '.
+                  $arrayIn[3];
+                      } else {
+                          $returnString = $book->getAuthorAndTitle();
+                      }
+                  } else {
+                      $returnString = 'Can not process, book # must be numeric.';
+                  }
               } else {
-                $returnString = $book->getAuthorAndTitle(); 
+                  $returnString = 'Can not process, book # must be numeric.';
               }
-            } else {
-              $returnString = 'Can not process, book # must be numeric.'; 
-            }            
-          } else {
-            $returnString = 'Can not process, book # must be numeric.'; 
           }
-        }
-        if ('title' == $arrayIn[1]) {
-          if (is_numeric($arrayIn[2])) {
-            $book = $this->bookList->getBook($arrayIn[2]);
-            if (NULL == $book) {
-              $returnString = 'Can not process, there is no book # '.
-                $arrayIn[2]; 
-            } else {
-              $returnString = $book->getTitle(); 
-            }
-          } else {
-            $returnString = 'Can not process, book # must be numeric.'; 
+          if ('title' == $arrayIn[1]) {
+              if (is_numeric($arrayIn[2])) {
+                  $book = $this->bookList->getBook($arrayIn[2]);
+                  if (null == $book) {
+                      $returnString = 'Can not process, there is no book # '.
+                $arrayIn[2];
+                  } else {
+                      $returnString = $book->getTitle();
+                  }
+              } else {
+                  $returnString = 'Can not process, book # must be numeric.';
+              }
           }
-        }
       } else {
-        $returnString = 'Can not process, can only process book author #,  book title #, or book author title #'; 
-      }      
-      return $returnString;  
+          $returnString = 'Can not process, can only process book author #,  book title #, or book author title #';
+      }
+        return $returnString;
     }
 }
 
-class BookList {
+class BookList
+{
     private $books = array();
     private $bookCount = 0;
-    public function __construct() {
+    public function __construct()
+    {
     }
-    public function getBookCount() {
+    public function getBookCount()
+    {
         return $this->bookCount;
     }
-    private function setBookCount($newCount) {
+    private function setBookCount($newCount)
+    {
         $this->bookCount = $newCount;
     }
-    public function getBook($bookNumberToGet) {
-        if ( (is_numeric($bookNumberToGet)) && 
+    public function getBook($bookNumberToGet)
+    {
+        if ((is_numeric($bookNumberToGet)) &&
            ($bookNumberToGet <= $this->getBookCount())) {
-           return $this->books[$bookNumberToGet];
+            return $this->books[$bookNumberToGet];
         } else {
-           return NULL;
+            return null;
         }
     }
-    public function addBook(Book $book_in) {
+    public function addBook(Book $book_in)
+    {
         $this->setBookCount($this->getBookCount() + 1);
         $this->books[$this->getBookCount()] = $book_in;
         return $this->getBookCount();
     }
-    public function removeBook(Book $book_in) {
-      $counter = 0;
-      while (++$counter <= $this->getBookCount()) {
-        if ($book_in->getAuthorAndTitle() == 
-          $this->books[$counter]->getAuthorAndTitle())
-		  {
-            for ($x = $counter; $x < $this->getBookCount(); $x++) {
-              $this->books[$x] = $this->books[$x + 1];
-          }
-          $this->setBookCount($this->getBookCount() - 1);
+    public function removeBook(Book $book_in)
+    {
+        $counter = 0;
+        while (++$counter <= $this->getBookCount()) {
+            if ($book_in->getAuthorAndTitle() ==
+          $this->books[$counter]->getAuthorAndTitle()) {
+                for ($x = $counter; $x < $this->getBookCount(); $x++) {
+                    $this->books[$x] = $this->books[$x + 1];
+                }
+                $this->setBookCount($this->getBookCount() - 1);
+            }
         }
-      }
-      return $this->getBookCount();
+        return $this->getBookCount();
     }
 }
 
-class Book {
+class Book
+{
     private $author;
     private $title;
-    function __construct($title_in, $author_in) {
+    public function __construct($title_in, $author_in)
+    {
         $this->author = $author_in;
         $this->title  = $title_in;
     }
-    function getAuthor() {
+    public function getAuthor()
+    {
         return $this->author;
     }
-    function getTitle() {
+    public function getTitle()
+    {
         return $this->title;
     }
-    function getAuthorAndTitle() {
+    public function getAuthorAndTitle()
+    {
         return $this->getTitle().' by '.$this->getAuthor();
     }
 }
@@ -119,8 +133,8 @@ class Book {
 
   //load BookList for test data
   $bookList = new BookList();
-  $inBook1 = new Book('PHP for Cats','Larry Truett');
-  $inBook2 = new Book('MySQL for Cats','Larry Truett');
+  $inBook1 = new Book('PHP for Cats', 'Larry Truett');
+  $inBook2 = new Book('MySQL for Cats', 'Larry Truett');
   $bookList->addBook($inBook1);
   $bookList->addBook($inBook2);
  
@@ -152,8 +166,7 @@ class Book {
 
   writeln('END TESTING INTERPRETER PATTERN');
  
-  function writeln($line_in) {
-    echo $line_in."<br/>";
+  function writeln($line_in)
+  {
+      echo $line_in."<br/>";
   }
-
-?>

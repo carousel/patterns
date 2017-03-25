@@ -63,7 +63,7 @@ BEHAVIORAL (decompositional,external to structure)
         -Mediator 
             -encapsulates communication between multiple objects
     -Strategy (interchangeable algorithms)
-        -code to and interface (different algorithm implementation?)
+        -code to an interface (different algorithm implementation?)
     -Command 
         -invoker/receiver paradigm
         -execute command on receiver
